@@ -34,13 +34,30 @@
             #document-view {
                 border: none;
                 resize: none;
+                display: inline-block;
+            }
+
+            .content {
+                float:left;
+                padding: 1.5em 1.5em 1.5em 1.5em;
+                overflow: scroll;
+            }
+
+            .output {
+                float:right;
+                padding: 1.5em 1.5em 1.5em 1.5em;
+                background-color: #dddddd;
+                width: 35em;
+                height: 41.25em;
+                overflow:scroll;
+                color:#1c1d26;
             }
 
             .text-stylings {
                 margin-right: 1em;
             }
 
-            .text-stylings > img{
+            .text-stylings > img {
                 width: 2.5em;
                 height:2.5em;
                 margin:.5em 0em 0em .5em;
@@ -53,45 +70,39 @@
         <header id="header">
             <h1 id="logo"><a href="index.html"><img src="images/logo_white.png" style="padding-top: 10px; padding-left: 18px; height: 42px"></a></h1>
             <nav id="nav" style="padding-right: 25px">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">About</a></li>
-                </ul>
-                </li>
-                </ul>
             </nav>
         </header>
 
         <br><br>
 
-        <div style="background-color: #787878">
+        <div style="background-color:#1c1d26;">
             <!-- Toolbar -->
             <section id="toolbar" style="padding: 2em 8em 0em 8em">
                 <div style="background-color: black">
                     <center>
 
                         <span class="text-stylings">
-                            <img src="images/button/font.png"      title="Change the font"/>
-                            <img src="images/button/fontsize.png"  title="Increase/decrease the font size"/>
-                            <img src="images/button/highlight.png" title="Highlight the selected text"/>
+                            <img src="images/button/font.png"      title="Font"/>
+                            <img src="images/button/fontsize.png"  title="Font size"/>
+                            <img src="images/button/highlight.png" title="Highlight"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/bold"           title="Bold the selected text"/>
-                            <img src="images/button/italic"         title="Italicize the selected text"/>
-                            <img src="images/button/underline.png"  title="Underline the selected text"/>
-                            <img src="images/button/textcolor"      title="Change the text color"/>
+                            <img src="images/button/bold"           title="Bold"/>
+                            <img src="images/button/italic"         title="Italicize"/>
+                            <img src="images/button/underline.png"  title="Underline"/>
+                            <img src="images/button/textcolor"      title="Text color"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/left align"     title="Left justify the text"/>
-                            <img src="images/button/center align"   title="Center the text"/>
-                            <img src="images/button/right align.png"title="Right align the text"/>
+                            <img src="images/button/left align"     title="Left align"/>
+                            <img src="images/button/center align"   title="Center"/>
+                            <img src="images/button/right align.png"title="Right align"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/list"/>
-                            <img src="images/button/bullets"/>
+                            <img src="images/button/list"           title="Numbered list"/>
+                            <img src="images/button/bullets"        title="Bullet list"/>
                         </span>
 
                     </center>
@@ -100,11 +111,12 @@
 
             <!-- Document -->
             <section id="document" style="padding: 0em 8em 1.5em 8em">
-                <div class="content" style="background-color: white; ">
+                <div class="content" style="background-color: #ffffff; color:#1c1d26;">
                     <form style="color: black">
-                        <textarea cols="50" rows="35" name="document-text" id="document-view"></textarea>
+                        <textarea cols="50" rows="20" name="document-text" id="document-view"></textarea>
                     </form>
                 </div>
+                <div class="output"></div>
             </section>
         </div>
 
