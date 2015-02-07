@@ -3,7 +3,7 @@
     Landed by HTML5 UP
     html5up.net | @n33co
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-    -->
+-->
 
 <html>
     <head>
@@ -32,6 +32,14 @@
         <link rel="stylesheet" href="css/ie/v8.css" />
         <![endif]-->
         <style>
+            .unselectable {
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
             #document-view {
                 border: none;
                 resize: none;
@@ -42,14 +50,16 @@
                 float: left;
                 padding: 1.5em 1.5em 1.5em 1.5em;
                 overflow: scroll;
+                width: 49%;
+                height:100%;
             }
 
             #output {
                 float: right;
                 padding: 2em 2em 2em 2em;
                 background-color: #eeeeee;
-                width: 35em;
-                height: 41.25em;
+                width: 49%;
+                height: 42.5em;
                 overflow: scroll;
                 color: #1c1d26;
             }
@@ -62,8 +72,97 @@
                 width: 2.5em;
                 height: 2.5em;
                 margin: .5em 0em 0em .5em;
+
             }
         </style>
+        <script type="text/javascript">
+            // var searchTimeOut;
+            // function update() {
+            //     if (searchTimeOut != undefined) 
+            //         clearTimeout(searchTimeOut);
+            //     searchTimeOut = setTimeout( document.getElementById("output").innerHTML =
+            //         document.getElementById("document-view").value, 250 );
+            // }
+            // window.onload = function() {
+            //     var text;
+            //     var range;
+            //     document.onmouseup = getSelectedText();
+            //     document.onkeyup = getSelectedText();
+            //     function getSelectedText() {
+            //         if (typeof window.getSelection != "undefined") {
+            //             text = window.getSelection().toString();
+            //             range = window.getSelection().getRangeAt(0);
+            //         } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+            //             text = document.selection.createRange().text;
+            //             range = window.getSelection().getRangeAt(0);
+            //         }
+            //     }
+
+            //     function highlight() {
+            //         var span = document.createElement("span");
+            //         span.style.backgroundColor = "yellow";
+            //         range.surroundContents(span);
+            //     }
+            // }
+            function getInputSelection(el) {
+                var start = 0, end = 0, normalizedValue, range,
+                    textInputRange, len, endRange;
+
+                if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+                    start = el.selectionStart;
+                    end = el.selectionEnd;
+                } else {
+                    range = document.selection.createRange();
+
+                    if (range && range.parentElement() == el) {
+                        len = el.value.length;
+                        normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+                        // Create a working TextRange that lives only in the input
+                        textInputRange = el.createTextRange();
+                        textInputRange.moveToBookmark(range.getBookmark());
+
+                        // Check if the start and end of the selection are at the very end
+                        // of the input, since moveStart/moveEnd doesn't return what we want
+                        // in those cases
+                        endRange = el.createTextRange();
+                        endRange.collapse(false);
+
+                        if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+                            start = end = len;
+                        } else {
+                            start = -textInputRange.moveStart("character", -len);
+                            start += normalizedValue.slice(0, start).split("\n").length - 1;
+
+                            if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+                                end = len;
+                            } else {
+                                end = -textInputRange.moveEnd("character", -len);
+                                end += normalizedValue.slice(0, end).split("\n").length - 1;
+                            }
+                        }
+                    }
+                }
+
+                return {
+                    start: start,
+                    end: end
+                };
+            }
+            function highlight() {
+                window.onmousedown = function() {
+                    window.onmouseup = function() {
+                        var positions = getInputSelection(document.getElementById("document-view"));
+                        var start = positions.start, end = positions.end;
+                        var text = documenbt.getElementById("document-view").text;
+                        var middle = text.substring(start, end);
+                        var beginning = text.substring(0, start);
+                        var after = text.substring(end);
+                        document.getElementById("document-view").innerHTML = beginning + "<span style=\"background-color:yellow;\">" + middle + "</span>" + after;
+                    }
+                }
+            }
+        </script>
     </head>
 
     <body class="landing">
@@ -82,28 +181,28 @@
                 <div style="background-color: black">
                     <center>
 
-                        <span class="text-stylings">
-                            <img src="images/button/font.png"      title="Font"/>
-                            <img src="images/button/fontsize.png"  title="Font size"/>
-                            <img src="images/button/highlight.png" title="Highlight"/>
+                        <span class="text-stylings unselectable">
+                            <img class="unselectable" src="images/button/font.png"      title="Font" unselectable="on"/>
+                            <img class="unselectable" src="images/button/fontsize.png"  title="Font size"/>
+                            <img class="unselectable" src="images/button/highlight.png" title="Highlight" onclick="highlight();" unselectable="on"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/bold"           title="Bold"/>
-                            <img src="images/button/italic"         title="Italicize"/>
-                            <img src="images/button/underline.png"  title="Underline"/>
-                            <img src="images/button/textcolor"      title="Text color"/>
+                            <img class="unselectable" src="images/button/bold"           title="Bold"/>
+                            <img class="unselectable" src="images/button/italic"         title="Italicize"/>
+                            <img class="unselectable" src="images/button/underline.png"  title="Underline"/>
+                            <img class="unselectable" src="images/button/textcolor"      title="Text color"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/left align"     title="Left align"/>
-                            <img src="images/button/center align"   title="Center"/>
-                            <img src="images/button/right align.png"title="Right align"/>
+                            <img class="unselectable" src="images/button/left align"     title="Left align"/>
+                            <img class="unselectable" src="images/button/center align"   title="Center"/>
+                            <img class="unselectable" src="images/button/right align.png"title="Right align"/>
                         </span>
 
                         <span class="text-stylings">
-                            <img src="images/button/list"           title="Numbered list"/>
-                            <img src="images/button/bullets"        title="Bullet list"/>
+                            <img class="unselectable" src="images/button/list"           title="Numbered list"/>
+                            <img class="unselectable" src="images/button/bullets"        title="Bullet list"/>
                         </span>
 
                     </center>
@@ -136,6 +235,7 @@
                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </footer>
+<<<<<<< HEAD:notepad.html
         <script type="text/javascript">
                 window.onload = function() {
                 var searchTimeOut;
@@ -147,5 +247,7 @@
                 }
             });
         </script>
+=======
+>>>>>>> FETCH_HEAD:Design/notepad.html
     </body>
 </html>
