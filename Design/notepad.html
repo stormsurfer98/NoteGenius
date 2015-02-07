@@ -39,19 +39,19 @@
             }
 
             .content {
-                float:left;
+                float: left;
                 padding: 1.5em 1.5em 1.5em 1.5em;
                 overflow: scroll;
             }
 
             #output {
-                float:right;
-                padding: 1.5em 1.5em 1.5em 1.5em;
-                background-color: #dddddd;
+                float: right;
+                padding: 2em 2em 2em 2em;
+                background-color: #eeeeee;
                 width: 35em;
                 height: 41.25em;
-                overflow:scroll;
-                color:#1c1d26;
+                overflow: scroll;
+                color: #1c1d26;
             }
 
             .text-stylings {
@@ -60,23 +60,10 @@
 
             .text-stylings > img {
                 width: 2.5em;
-                height:2.5em;
-                margin:.5em 0em 0em .5em;
+                height: 2.5em;
+                margin: .5em 0em 0em .5em;
             }
         </style>
-
-        <script type="text/javascript">
-            window.onload = function() {
-                var searchTimeOut;
-                document.getElementById("document-view").onkeydown = function() {
-                    if (searchTimeOut != undefined) 
-                        clearTimeout(searchTimeOut);
-                    searchTimeOut = setTimeout( document.getElementById("output").innerHTML 
-                                                    = document.getElementById("document-view").value,
-                                                250 ) 
-                }
-            }
-        </script>
     </head>
 
     <body class="landing">
@@ -149,5 +136,17 @@
                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </footer>
+        <script src="jquery.js"></script>
+        <script type="text/javascript">
+                window.onload = function() {
+                var searchTimeOut;
+                document.getElementById("document-view").onkeydown = function() {
+                    if (searchTimeOut != undefined) 
+                        clearTimeout(searchTimeOut);
+                    searchTimeOut = setTimeout( document.getElementById("output").innerHTML =
+                                                document.getElementById("document-view").value, 250 );
+                }
+            });
+        </script>
     </body>
 </html>
