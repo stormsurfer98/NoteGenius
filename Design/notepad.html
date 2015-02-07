@@ -83,25 +83,83 @@
             //     searchTimeOut = setTimeout( document.getElementById("output").innerHTML =
             //         document.getElementById("document-view").value, 250 );
             // }
-            window.onload = function() {
-                var text;
-                var range;
-                document.onmouseup = getSelectedText();
-                document.onkeyup = getSelectedText();
-                function getSelectedText() {
-                    if (typeof window.getSelection != "undefined") {
-                        text = window.getSelection().toString();
-                        range = window.getSelection().getRangeAt(0);
-                    } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
-                        text = document.selection.createRange().text;
-                        range = window.getSelection().getRangeAt(0);
+            // window.onload = function() {
+            //     var text;
+            //     var range;
+            //     document.onmouseup = getSelectedText();
+            //     document.onkeyup = getSelectedText();
+            //     function getSelectedText() {
+            //         if (typeof window.getSelection != "undefined") {
+            //             text = window.getSelection().toString();
+            //             range = window.getSelection().getRangeAt(0);
+            //         } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+            //             text = document.selection.createRange().text;
+            //             range = window.getSelection().getRangeAt(0);
+            //         }
+            //     }
+
+            //     function highlight() {
+            //         var span = document.createElement("span");
+            //         span.style.backgroundColor = "yellow";
+            //         range.surroundContents(span);
+            //     }
+            // }
+            function getInputSelection(el) {
+                var start = 0, end = 0, normalizedValue, range,
+                    textInputRange, len, endRange;
+
+                if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+                    start = el.selectionStart;
+                    end = el.selectionEnd;
+                } else {
+                    range = document.selection.createRange();
+
+                    if (range && range.parentElement() == el) {
+                        len = el.value.length;
+                        normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+                        // Create a working TextRange that lives only in the input
+                        textInputRange = el.createTextRange();
+                        textInputRange.moveToBookmark(range.getBookmark());
+
+                        // Check if the start and end of the selection are at the very end
+                        // of the input, since moveStart/moveEnd doesn't return what we want
+                        // in those cases
+                        endRange = el.createTextRange();
+                        endRange.collapse(false);
+
+                        if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+                            start = end = len;
+                        } else {
+                            start = -textInputRange.moveStart("character", -len);
+                            start += normalizedValue.slice(0, start).split("\n").length - 1;
+
+                            if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+                                end = len;
+                            } else {
+                                end = -textInputRange.moveEnd("character", -len);
+                                end += normalizedValue.slice(0, end).split("\n").length - 1;
+                            }
+                        }
                     }
                 }
 
-                function highlight() {
-                    var span = document.createElement("span");
-                    span.style.backgroundColor = "yellow";
-                    range.surroundContents(span);
+                return {
+                    start: start,
+                    end: end
+                };
+            }
+            function highlight() {
+                window.onmousedown = function() {
+                    window.onmouseup = function() {
+                        var positions = getInputSelection(document.getElementById("document-view"));
+                        var start = positions.start, end = positions.end;
+                        var text = documenbt.getElementById("document-view").text;
+                        var middle = text.substring(start, end);
+                        var beginning = text.substring(0, start);
+                        var after = text.substring(end);
+                        document.getElementById("document-view").innerHTML = beginning + "<span style=\"background-color:yellow;\">" + middle + "</span>" + after;
+                    }
                 }
             }
         </script>
