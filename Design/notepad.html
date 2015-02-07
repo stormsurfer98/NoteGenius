@@ -3,7 +3,7 @@
     Landed by HTML5 UP
     html5up.net | @n33co
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-    -->
+-->
 
 <html>
     <head>
@@ -136,17 +136,17 @@
                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </footer>
-        <script src="jquery.js"></script>
         <script type="text/javascript">
-                window.onload = function() {
+            window.onload = function() {
                 var searchTimeOut;
+                var keyCode = getKeyCode();
                 document.getElementById("document-view").onkeydown = function() {
                     if (searchTimeOut != undefined) 
                         clearTimeout(searchTimeOut);
                     searchTimeOut = setTimeout( document.getElementById("output").innerHTML =
-                                                document.getElementById("document-view").value, 250 );
+                        document.getElementById("document-view").value, 250 );
                 }
-            });
+            }
         </script>
     </body>
 </html>
