@@ -74,6 +74,9 @@
                 margin: .5em 0em 0em .5em;
 
             }
+            .highlight-green {
+                color: #00FF00;
+            }
         </style>
         <script type="text/javascript">
             // var searchTimeOut;
@@ -104,63 +107,91 @@
             //         range.surroundContents(span);
             //     }
             // }
-            function getInputSelection(el) {
-                var start = 0, end = 0, normalizedValue, range,
-                    textInputRange, len, endRange;
+            // function getInputSelection(el) {
+            //     var start = 0, end = 0, normalizedValue, range,
+            //         textInputRange, len, endRange;
 
-                if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
-                    start = el.selectionStart;
-                    end = el.selectionEnd;
-                } else {
-                    range = document.selection.createRange();
+            //     if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+            //         start = el.selectionStart;
+            //         end = el.selectionEnd;
+            //     } else {
+            //         range = document.selection.createRange();
 
-                    if (range && range.parentElement() == el) {
-                        len = el.value.length;
-                        normalizedValue = el.value.replace(/\r\n/g, "\n");
+            //         if (range && range.parentElement() == el) {
+            //             len = el.value.length;
+            //             normalizedValue = el.value.replace(/\r\n/g, "\n");
 
-                        // Create a working TextRange that lives only in the input
-                        textInputRange = el.createTextRange();
-                        textInputRange.moveToBookmark(range.getBookmark());
+            //             // Create a working TextRange that lives only in the input
+            //             textInputRange = el.createTextRange();
+            //             textInputRange.moveToBookmark(range.getBookmark());
 
-                        // Check if the start and end of the selection are at the very end
-                        // of the input, since moveStart/moveEnd doesn't return what we want
-                        // in those cases
-                        endRange = el.createTextRange();
-                        endRange.collapse(false);
+            //             // Check if the start and end of the selection are at the very end
+            //             // of the input, since moveStart/moveEnd doesn't return what we want
+            //             // in those cases
+            //             endRange = el.createTextRange();
+            //             endRange.collapse(false);
 
-                        if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
-                            start = end = len;
-                        } else {
-                            start = -textInputRange.moveStart("character", -len);
-                            start += normalizedValue.slice(0, start).split("\n").length - 1;
+            //             if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+            //                 start = end = len;
+            //             } else {
+            //                 start = -textInputRange.moveStart("character", -len);
+            //                 start += normalizedValue.slice(0, start).split("\n").length - 1;
 
-                            if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
-                                end = len;
-                            } else {
-                                end = -textInputRange.moveEnd("character", -len);
-                                end += normalizedValue.slice(0, end).split("\n").length - 1;
-                            }
-                        }
-                    }
-                }
+            //                 if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+            //                     end = len;
+            //                 } else {
+            //                     end = -textInputRange.moveEnd("character", -len);
+            //                     end += normalizedValue.slice(0, end).split("\n").length - 1;
+            //                 }
+            //             }
+            //         }
+            //     }
 
-                return {
-                    start: start,
-                    end: end
-                };
-            }
-            function highlight() {
-                window.onmousedown = function() {
-                    window.onmouseup = function() {
-                        var positions = getInputSelection(document.getElementById("document-view"));
-                        var start = positions.start, end = positions.end;
-                        var text = documenbt.getElementById("document-view").text;
-                        var middle = text.substring(start, end);
-                        var beginning = text.substring(0, start);
-                        var after = text.substring(end);
-                        document.getElementById("document-view").innerHTML = beginning + "<span style=\"background-color:yellow;\">" + middle + "</span>" + after;
-                    }
-                }
+            //     return {
+            //         start: start,
+            //         end: end
+            //     };
+            // }
+            // function highlight() {
+            //     window.onmousedown = function() {
+            //         window.onmouseup = function() {
+            //             var positions = getInputSelection(document.getElementById("document-view"));
+            //             var start = positions.start, end = positions.end;
+            //             var text = documenbt.getElementById("document-view").text;
+            //             var middle = text.substring(start, end);
+            //             var beginning = text.substring(0, start);
+            //             var after = text.substring(end);
+            //             document.getElementById("document-view").innerHTML = beginning + "<span style=\"background-color:yellow;\">" + middle + "</span>" + after;
+            //         }
+            //     }
+            // }
+            // function highlightSelection()  {
+            //   var selection;
+
+            //   //Get the selected stuff
+            //   if(window.getSelection) 
+            //     selection = window.getSelection();
+            //   else if(typeof document.selection!="undefined")
+            //     selection = document.selection;
+
+            //   //Get a the selected content, in a range object
+            //   var range = selection.getRangeAt(0);
+
+            //   //If the range spans some text, and inside a tag, set its css class.
+            //   if(range && !selection.isCollapsed)
+            //   {
+            //     if(selection.anchorNode.parentNode == selection.focusNode.parentNode)
+            //     {
+            //       var span = document.createElement('span');
+            //       span.className = 'highlight-green';
+            //       range.surroundContents(span);
+            //     }
+            //   }
+            // }
+            // $(document).ready(highlightSelection());
+            function bold() {
+                alert(document.selection)
+                document.selection.style.fontWeight = 'bold';                
             }
         </script>
     </head>
@@ -182,13 +213,13 @@
                     <center>
 
                         <span class="text-stylings unselectable">
-                            <img class="unselectable" src="images/button/font.png"      title="Font" unselectable="on"/>
+                            <img class="unselectable" src="images/button/font.png"      title="Font" />
                             <img class="unselectable" src="images/button/fontsize.png"  title="Font size"/>
                             <img class="unselectable" src="images/button/highlight.png" title="Highlight" onclick="highlight();" unselectable="on"/>
                         </span>
 
-                        <span class="text-stylings">
-                            <img class="unselectable" src="images/button/bold"           title="Bold"/>
+                        <span class="text-stylings" >
+                            <img class="unselectable" src="images/button/bold"           title="Bold" onclick="bold()" />
                             <img class="unselectable" src="images/button/italic"         title="Italicize"/>
                             <img class="unselectable" src="images/button/underline.png"  title="Underline"/>
                             <img class="unselectable" src="images/button/textcolor"      title="Text color"/>
@@ -211,12 +242,12 @@
 
             <!-- Document -->
             <section id="document" style="padding: 0em 8em 1.5em 8em">
-                <div class="content" style="background-color: #ffffff; color:#1c1d26;">
+                <div class="content" style="background-color: #ffffff; color:#1c1d26; width:100%">
                     <form style="color: black">
                         <textarea cols="50" rows="20" name="document-text" id="document-view"></textarea>
                     </form>
                 </div>
-                <div id="output"></div>
+                <!-- <div id="output"></div> -->
             </section>
         </div>
 
