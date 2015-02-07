@@ -1617,6 +1617,7 @@
 		background: #272833;
 		padding: 6em 0;
 		text-align: center;
+		clear: both;
 	}
 
 		#footer .icons .icon.alt {
