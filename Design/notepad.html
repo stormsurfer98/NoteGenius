@@ -35,6 +35,16 @@
                 border: none;
                 resize: none;
             }
+
+            .text-stylings {
+                margin-right: 1em;
+            }
+
+            .text-stylings > img{
+                width: 2.5em;
+                height:2.5em;
+                margin:.5em 0em 0em .5em;
+            }
         </style>
     </head>
 
@@ -56,14 +66,40 @@
 
         <div style="background-color: #787878">
             <!-- Toolbar -->
-            <section id="toolbar" style="padding: .5cm 5cm 1cm 5cm">
+            <section id="toolbar" style="padding: 2em 8em 0em 8em">
                 <div style="background-color: black">
-                    <br><br>
+                    <center>
+
+                        <span class="text-stylings">
+                            <img src="images/button/font.png"      title="Change the font"/>
+                            <img src="images/button/fontsize.png"  title="Increase/decrease the font size"/>
+                            <img src="images/button/highlight.png" title="Highlight the selected text"/>
+                        </span>
+
+                        <span class="text-stylings">
+                            <img src="images/button/bold"           title="Bold the selected text"/>
+                            <img src="images/button/italic"         title="Italicize the selected text"/>
+                            <img src="images/button/underline.png"  title="Underline the selected text"/>
+                            <img src="images/button/textcolor"      title="Change the text color"/>
+                        </span>
+
+                        <span class="text-stylings">
+                            <img src="images/button/left align"     title="Left justify the text"/>
+                            <img src="images/button/center align"   title="Center the text"/>
+                            <img src="images/button/right align.png"title="Right align the text"/>
+                        </span>
+
+                        <span class="text-stylings">
+                            <img src="images/button/list"/>
+                            <img src="images/button/bullets"/>
+                        </span>
+
+                    </center>
                 </div>
             </section>
 
             <!-- Document -->
-            <section id="document" style="padding: 0cm 5cm 1.5cm 5cm">
+            <section id="document" style="padding: 0em 8em 1.5em 8em">
                 <div class="content" style="background-color: white; ">
                     <form style="color: black">
                         <textarea cols="50" rows="35" name="document-text" id="document-view"></textarea>
@@ -83,7 +119,7 @@
                 <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
-                <li>&copy; Untitled. All rights reserved.</li>
+                <li>&copy; NoteGenius. All rights reserved.</li>
                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </footer>
