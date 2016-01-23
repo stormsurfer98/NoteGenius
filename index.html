@@ -1,105 +1,49 @@
 <!DOCTYPE HTML>
-<!--
-    Landed by HTML5 UP
-    html5up.net | @n33co
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-    <head>
-        <title>NoteGenius | Home</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.scrolly.min.js"></script>
-        <script src="js/jquery.dropotron.min.js"></script>
-        <script src="js/jquery.scrollex.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
-        <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
-		<link rel="icon" href="favicon.ico">
-        <noscript>
-            <link rel="stylesheet" href="css/skel.css" />
-            <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-xlarge.css" />
-            <link rel="stylesheet" href="form2/css/bootstrap.css">
-        </noscript>
-        <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-        <!-- JavaScript -->
-            <script src="//www.parsecdn.com/js/parse-1.3.4.min.js"></script>
+	<head>
+		<title>NoteGenius | Home</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="icon" href="images/favicon.icon">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="//www.parsecdn.com/js/parse-1.3.4.min.js"></script>
+		<script src="js/auth.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css">
+			<link rel="stylesheet" href="css/style.css">
+			<link rel="stylesheet" href="css/style-xlarge.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+		</noscript>
+	</head>
 
-            <script>
-                Parse.initialize("uled1sX5MMHVBtzypumN39gBKwX9FsK2NtJBhU2k", "ntOlTUKEc0j9KTFX37uScDh8fxdd64ug1MyQbELQ");
-
-                function signUpUser(){
-                    var user = new Parse.User();
-                    user.set("username", document.getElementById('username-text').value);
-                    user.set("password", document.getElementById('password-text').value);
-
-                    user.signUp(null, {
-                      success: function(user) {
-                        // Hooray! Let them use the app now.
-                        window.location.replace("notepad2.html");
-                      },
-                      error: function(user, error) {
-                        // Show the error message somewhere and let the user try again.
-                        alert("Error: " + error.message);
-                      }
-                    });
-                }
-
-                function logInUser(){
-                    var user = new Parse.User();
-                    user.set("username", document.getElementById('username-text').value);
-                    user.set("password", document.getElementById('password-text').value);
-
-                    Parse.User.logIn(document.getElementById('username-text').value, document.getElementById('password-text').value, {
-                        success: function(user) {
-                            // Do stuff after successful login.
-                            window.location.replace("notepad2.html");
-                        },
-                        error: function(user, error) {
-                            // The login failed. Check error to see why.
-                            alert("Error: " + error.message);
-                        }
-                    });
-                }
-            </script>
-    </head>
-    <body class="landing">
-        <!-- Header -->
-        <header id="header">
-            <h1 id="logo"><a href="index.html"><img src="images/logo_white.png" style="padding-top: 10px; padding-left: 18px; height: 42px"></a></h1>
-            <!-- <nav id="nav" style="padding-right: 25px">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">About</a></li>
-                </ul>
-                </li>
-                </ul>
-            </nav> -->
-        </header>
+	<body class="landing">
+		<!-- Header -->
+		<header id="header">
+			<h1 id="logo"><a href="index.html"><img src="images/logo.png" style="padding-top: 10px; padding-left: 18px; height: 42px"></a></h1>
+		</header>
 
 		<!-- Banner -->
 		<section id="banner">
 			<div class="content">
-				<header><center>
-					<img src="images/logo_white.png" style="height: 100px">
-					</script>
-						<p>Snap. Annotate. Share.<br/>
-						Taking notes has never been easier.<br><br></p>
-                   <iframe src="//fast.wistia.net/embed/iframe/cxcpwkx8ms?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="350" height="197"></iframe><script src="//fast.wistia.net/assets/external/E-v1.js"></script>
-					</center>       
+				<header>
+					<center>
+						<img src="images/logo.png" style="height: 100px">
+						<p>Snap. Annotate. Share.<br>Taking notes has never been easier.<br><br></p>
+					</center>
 				</header>
 			</div>
+
 			<div class="content">
 				<form>
 					<label style="margin-bottom:0em; text-align:left">Username:</label>
-					<input id="username-text" type="text" class="form-control" size="30px"/>
+					<input id="username-text" type="text" class="form-control" size="30px" />
 					<label style="margin-top:0.2em; margin-bottom:0em; text-align:left">Password:</label>
 					<input id="password-text" class="form-control" type="password" size="30px" style="margin-bottom:10px" />
 					<center>
@@ -109,112 +53,95 @@
 				</form>
 			</div>
 			<a href="#one" class="goto-next scrolly">Next</a>
-			</section>
+		</section>
 
-        <!-- One -->
-            <section id="one" class="spotlight style1 bottom">
-                <span class="image fit main"><img src="images/GalaxyS5_Mockup.jpg" alt="" /></span>
-                <div class="content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="4u 12u$(medium)">
-                                <header>
-                                    <h2>Note-taking has never been easier.</h2>
-                                    <p>Use NoteGenius to maximize note-taking.</p>
-                                </header>
-                            </div>
-                            <div class="4u 12u$(medium)">
-                                <p><!--Using a laptop to take notes in class? Typing everything your professor writes on the board word-by-word? Well, look no further; NoteGenius is here. NoteGenius allows you to simply take a picture of the board, upload it using your phone, annotate the text online, and more.-->
-                                Look up. Look down. Type 2 lines and delete the last five lines. It's an inefficient hassle to whip your head up and down between the board, the professor, and your laptop screen. At NoteGenius we value the student experience of learning for life, not just studying for the next test. Driven by our first-hand experiences and feedback, we've streamlined the note-taking process for students worldwide.</p>
-                            </div>
-                            <div class="4u$ 12u$(medium)">
-                                <p><!--NoteGenius uses Optical Character Recognition (OCR) technology to convert your picture to text so that you can annotate it and be on top of things. It communicates real-time with your phone in order to maximize your learning experience.-->
-                                 NoteGenius is a responsive, efficient, and automated approach to note-taking in modern classroom settings with the help of Optical Character Recognition technology, live formatting, and an automated artificial intelligence ready to help with your next study session.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#four" class="goto-next scrolly">Next</a>
-            </section>
+		<!-- One -->
+		<section id="one" class="spotlight style1 bottom">
+			<span class="image fit main"><img src="images/mockup.png" alt="" /></span>
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="4u 12u$(medium)">
+							<header>
+								<h2>Snap. Annotate. Share.</h2>
+								<p>Taking notes has never been easier.</p>
+							</header>
+						</div>
+						<div class="4u 12u$(medium)">
+							<p>Look up. Look down. Type two lines and delete the last five. It's an inefficient hassle to whip your head up and down between the board, the professor, and your laptop screen. At NoteGenius, we value the student experience of learning for life, not just studying for the next test. Driven by first-hand experiences and feedback, we've streamlined the note-taking process for students worldwide.</p>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<p>NoteGenius is a responsive, efficient, and automated approach to note-taking in modern classroom settings with the help of Optical Character Recognition (OCR), voice-to-text, and artificial intelligence technology. Simply snap a picture of the board; we'll take care of the rest.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#two" class="goto-next scrolly">Next</a>
+		</section>
 
-        <!-- Four -->
-            <section id="four" class="wrapper style1 special fade-up">
-                <div class="container">
-                    <header class="major">
-                        <h2>Features</h2>
-                        <p>Amazing features. All available at your fingertips. Sign up today!</p>
-                    </header>
-                    <div class="box alt">
-                        <div class="row uniform">
-                            <section class="4u 6u(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-camera"></span>
-                                <h3>Picture-to-Text</h3>
-                                <p>Simply snap a picture using your phone. We'll convert it to text.</p>
-                            </section>
-                            <section class="4u 6u$(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-edit"></span>
-                                <h3>Format</h3>
-                                <p>Format the text online. Edit it any way you want.</p>
-                            </section>
-                            <section class="4u$ 6u(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-laptop"></span>
-                                <h3>Instant View</h3>
-                                <p>Read the board on your laptop or save it for later.</p>
-                            </section>
-                            <section class="4u 6u$(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-joomla"></span>
-                                <h3>Smart Annotations</h3>
-                                <p>Our in-house AI assisstance will make sure you're ready to study well.</p>
-                            </section>
-                            <section class="4u 6u(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-paper-plane"></span>
-                                <h3>Sharing</h3>
-                                <p>Share the document with your friends and classmates in a variety of file types</p>
-                            </section>
-                            <section class="4u$ 6u$(medium) 12u$(xsmall)">
-                                <span class="icon alt major fa-university"></span>
-                                <h3>Efficient Education</h3>
-                                <p>Make sure you can pay attention to the lecture, we'll take care of the rest.</p>
-                            </section>
-                        </div>
-                    </div>
-                    <footer class="major">
-                        <ul class="actions">
-                            <li><a href="#" class="button">Contact Us</a></li>
-                        </ul>
-                    </footer>
-                </div>
-            </section>
+		<!-- Two -->
+		<section id="two" class="wrapper style1 special fade-up">
+			<div class="container">
+				<header class="major">
+					<h2>Features</h2>
+					<p>Amazing features, all available at your fingertips. Sign up today!</p>
+				</header>
+				<div class="box alt">
+					<div class="row uniform">
+						<section class="4u 6u(medium) 12u$(xsmall)">
+							<span class="icon alt major fa-camera"></span>
+							<h3>Snap.</h3>
+							<p>Simply snap a picture of the board using your phone. We'll convert it into text.</p>
+						</section>
+						<section class="4u 6u$(medium) 12u$(xsmall)">
+							<span class="icon alt major fa-edit"></span>
+							<h3>Annotate.</h3>
+							<p>Our AI assistant will automatically annotate the text. We'll locate the key terms and point you to useful articles, research, and websites.</p>
+						</section>
+						<section class="4u$ 6u(medium) 12u$(xsmall)">
+							<span class="icon alt major fa-paper-plane"></span>
+							<h3>Share.</h3>
+							<p>Share the document with friends and classmates via email, Google Drive, and Dropbox or export to Word and PDF. Study <em>together</em>.</p>
+						</section>
+					</div>
+				</div>
+				<footer class="major">
+					<ul class="actions">
+						<li><a href="#" class="button">Contact Us</a></li>
+					</ul>
+				</footer>
+			</div>
+		</section>
 
-        <!-- Five -->
-            <section id="five" class="wrapper style2 special fade">
-                <div class="container">
-                    <header>
-                        <h2>Sign up to get updates today.</h2>
-                        <p>We promise we won't spam you!</p>
-                    </header>
-                    <form method="post" action="#" class="container 50%">
-                        <div class="row uniform 50%">
-                            <div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-                            <div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+		<!-- Three -->
+		<section id="five" class="wrapper style2 special fade">
+			<div class="container">
+				<header>
+					<h2>Sign up to get updates today.</h2>
+					<p>We promise we won't spam you!</p>
+				</header>
+				<form method="post" action="#" class="container 50%">
+					<div class="row uniform 50%">
+						<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+						<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
+					</div>
+				</form>
+			</div>
+		</section>
 
-        <!-- Footer -->
-            <footer id="footer">
-                <ul class="icons">
-                    <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-                    <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; NoteGenius. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                </ul>
-            </footer>
-    </body>
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; NoteGenius. All rights reserved.</li>
+			</ul>
+		</footer>
+	</body>
 </html>

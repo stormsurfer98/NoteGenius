@@ -1,0 +1,41 @@
+.unselectable {
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#document-view {
+	border: none;
+	resize: none;
+	display: inline-block;
+}
+
+.content {
+	float: left;
+	padding: 1.5em 1.5em 1.5em 1.5em;
+	overflow: scroll;
+	width: 49%;
+	height:100%;
+}
+
+#output {
+	float: right;
+	padding: 2em 2em 2em 2em;
+	background-color: #eeeeee;
+	width: 49%;
+	height: 42.5em;
+	overflow: scroll;
+	color: #1c1d26;
+}
+
+.text-stylings {
+	margin-right: 1em;
+}
+
+.text-stylings > img {
+	width: 2.5em;
+	height: 2.5em;
+	margin: .5em 0em 0em .5em;
+}
